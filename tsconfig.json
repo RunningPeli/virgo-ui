@@ -1,0 +1,65 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "target": "esnext",
+    "module": "esnext",
+    "lib": [
+      "esnext",
+      "DOM"
+    ],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "noUncheckedIndexedAccess": true,
+    "jsx": "preserve",
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "@virgo-ui/vue": [
+        "./packages/virgo-vue/src/index.ts"
+      ],
+      "@/*": [
+        "./packages/virgo-vue/src/*"
+      ],
+      "@virgo-ui/core": [
+        "./packages/virgo-vue/src/index.ts"
+      ],
+      "@virgo-ui/core/*": [
+        "./packages/virgo-vue/src/*"
+      ],
+      "@virgo-ui/theme-base": [
+        "./packages/theme-base/src/index.ts"
+      ],
+      "@virgo-ui/theme-base/*": [
+        "./packages/theme-base/src/*"
+      ],
+      "@virgo-ui/nuxt": [
+        "./packages/virgo-nuxt/src/module.ts"
+      ]
+    }
+  },
+  "include": [
+    "./packages/*/src/**/*",
+    "./packages/virgo-vue/auto-imports.d.ts",
+    "./packages/virgo-vue/shims.d.ts",
+    "./packages/virgo-vue/volar.d.ts",
+    "./docs/components/**/*",
+    "./docs/components/playground.vue",
+    "./docs/utils/*",
+    "./docs/.vitepress/shims.d.ts",
+    "./docs/.vitepress/theme/index.ts"
+  ],
+  "exclude": [
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/playground/**"
+  ]
+}

@@ -1,0 +1,9 @@
+node_modules
+dist
+*.zip
+
+# General
+.DS_Store
+.idea/
+
+packages/virgo-vue/component-meta
