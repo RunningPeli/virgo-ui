@@ -237,4 +237,4 @@ file
 </template>
 </base-input>
 
-<api "Base Input" :api="baseInputApi"></api>
+<api title="Base Input" :api="baseInputApi"></api>
