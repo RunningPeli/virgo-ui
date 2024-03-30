@@ -69,7 +69,7 @@ Here are the steps to use Virgo with UnoCSS, according to our vision.
     import { createApp } from 'vue'
     import App from './App.vue'
     import { virgo } from '@virgo-ui/vue'
-    import { themeBase } from '@virgo-ui/theme-base'
+    import { themeBase } from '@virgo-ui/theme-base' // temporary removed from package
 
     // UnoCSS import
     import 'uno.css'
@@ -78,11 +78,11 @@ Here are the steps to use Virgo with UnoCSS, according to our vision.
     import '@virgo-ui/vue/dist/style.css'
 
    	// virgo default theme style
-    import '@virgo-ui/theme-base/dist/style.css'
+    import '@virgo-ui/theme-base/dist/style.css' //
 
     // Using `app.use(virgo)` will register virgo plugin
     createApp(App)
-      .use(virgo, themeBase())
+      .use(virgo, themeBase()) // themeBase function tempopary removed from package
       .mount('#app')
     ```
 

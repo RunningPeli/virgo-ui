@@ -1,7 +1,6 @@
 // Theme
-export {themeBase} from './theme-base'
+// export {themeBase} from './theme-base' TODO: Fix type-fest error
 
 // Preset
-export { virgoDefaultThemeColors as defaultThemeColors, presetVirgo } from '../../theme-base/src/preset'
-export type { PresetVirgoOptions } from '../../theme-base/src/preset'
+export { presetVirgo } from '../../theme-base/src/preset'
 export { presetIconExtraProperties } from './icons'

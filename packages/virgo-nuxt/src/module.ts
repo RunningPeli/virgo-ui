@@ -4,7 +4,6 @@ import presetIcons from '@unocss/preset-icons'
 import presetUno from '@unocss/preset-uno'
 import type { PluginOptions } from '@virgo-ui/vue'
 import { components as VirgoComponents, composables as VirgoComposables } from '@virgo-ui/vue'
-import type { PresetVirgoOptions } from '@virgo-ui/theme-base'
 import {presetVirgo,presetIconExtraProperties} from '@virgo-ui/theme-base'
 /*import type { PartialDeep } from 'type-fest'*/
 
@@ -26,11 +25,6 @@ export interface ModuleOptions {
 	 * @default true
 	 */
 	applyDefaultVirgoPreset?: boolean
-
-	/**
-	 * Options for Virgo Preset
-	 */
-	presetVirgoOptions?: PresetVirgoOptions
 
 	/*/!**
 	 * Virgo Vue Initial Theme | Source npm pkg: `@virgo-ui/vue

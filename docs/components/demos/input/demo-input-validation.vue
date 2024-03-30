@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 const username = ref('')
-const isRequired = (val: string) => (val.trim() ? true : 'This is required')
+const hasError = computed(()=> {
+	return username.value.trim() === ''  ? 'This is required' : undefined
+})
 </script>
 
 <template>
@@ -9,7 +11,7 @@ const isRequired = (val: string) => (val.trim() ? true : 'This is required')
 		<div>
 			<virgo-input
 				v-model="username"
-				:error="username.length < 1 ? isRequired(username) : undefined"
+				:error="hasError"
 				label="Username"
 				hint="Error message will get displayed here"
 			/>
