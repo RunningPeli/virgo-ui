@@ -3,6 +3,7 @@ import * as url from 'node:url'
 import fs from 'fs-extra'
 import { globbySync } from 'globby'
 import { indent } from './utils'
+import { pascalCase } from '../packages/virgo-vue/src/utils/change-case'
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
 
@@ -20,7 +21,7 @@ const virgoVuePkgRoot = path.join(__dirname, '..', 'packages', 'virgo-vue')
 
 const virgoVueComponentsDir = path.join(virgoVuePkgRoot, 'src', 'components')
 const componentsPath = globbySync(['**/*.vue'], { cwd: virgoVueComponentsDir, absolute: true })
-const componentNames = componentsPath.map((c) => path.parse(c).name)
+const componentNames = componentsPath.map((c) => path.parse(c).name).map((c) => pascalCase(c))
 
 const imports = componentNames.map((c) => genImportString(c))
 const volarDTSContent = content.replace('$components', imports.join('\n'))
