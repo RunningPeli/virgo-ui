@@ -21,7 +21,7 @@
 		"test-ui": "nr --filter @virgo-ui/vue test-ui"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "Virgo Labs <https://github.com/Virgo-Labs>",
 	"license": "ISC",
 	"devDependencies": {
 		"@antfu/eslint-config": "0.39.5",
