@@ -109,7 +109,6 @@ jobs:
       )
     needs:
       - build
-      - lint
     runs-on: ${{ matrix.os }}
 
     strategy:
