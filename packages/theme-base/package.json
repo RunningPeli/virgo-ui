@@ -1,6 +1,6 @@
 {
 	"name": "@virgo-ui/theme-base",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Official theme config for Virgo",
 	"type": "module",
 	"private": false,

@@ -3,31 +3,28 @@ name: CI
 on:
   push:
     paths-ignore:
-      - "docs/**"
+      - 'docs/**'
     branches: main
   pull_request:
     paths-ignore:
-      - "docs/**"
+      - 'docs/**'
     branches: main
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-        node: ["lts/*"]
+    runs-on: ubuntu-latest
 
     timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v3
+
       - run: corepack enable
+
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          cache: "pnpm"
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install
@@ -39,15 +36,12 @@ jobs:
         uses: actions/cache@v3
         with:
           path: packages/*/dist
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-${{ github.sha }}
+          key: cache-${{ github.sha }}
 
   # test:
-  #   runs-on: ${{ matrix.os }}
+  #   runs-on: [ubuntu-latest]
 
-  #   strategy:
-  #     matrix:
-  #       os: [ubuntu-latest]
-  #       node: ['lts/*']
+  #   timeout-minutes: 10
 
   #   timeout-minutes: 10
 
@@ -73,12 +67,9 @@ jobs:
   #         path: test-results.xml
 
   # lint:
-  #   runs-on: ${{ matrix.os }}
+  #   runs-on: [ubuntu-latest]
 
-  #   strategy:
-  #     matrix:
-  #       os: [ubuntu-latest]
-  #       node: ["lts/*"]
+  #   timeout-minutes: 10
 
   #   timeout-minutes: 10
 
@@ -97,6 +88,10 @@ jobs:
   #       run: pnpm lint
 
   build-release:
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 20
+
     if: |
       github.event_name == 'push'
       && (
@@ -109,14 +104,6 @@ jobs:
       )
     needs:
       - build
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: ["lts/*"]
-
-    timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v3
@@ -124,7 +111,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          cache: "pnpm"
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install
@@ -133,7 +120,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: packages/*/dist
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-${{ github.sha }}
+          key: cache-${{ github.sha }}
 
       - name: Release Edge
         run: ./scripts/release-edge.sh

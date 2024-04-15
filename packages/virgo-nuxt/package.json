@@ -1,6 +1,6 @@
 {
 	"name": "@virgo-ui/nuxt",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Nuxt 3 Module for Virgo",
 	"license": "MIT",
 	"private": false,
