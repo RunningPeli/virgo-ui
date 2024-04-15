@@ -10,6 +10,7 @@
         "matijao.vue-nuxt-snippets",
         "antfu.smart-clicks",
         "meganrogge.template-string-converter",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "github.vscode-github-actions"
     ]
 }
