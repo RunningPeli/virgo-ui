@@ -4,7 +4,7 @@ import type {
 	App,
 	AllowedComponentProps,
 	Component,
-	VNodeProps
+	VNodeProps, VNodeNormalizedChildren
 } from 'vue'
 import {
 	defineComponent,
@@ -49,7 +49,7 @@ export type VueClassBinding = string | Record<string, unknown> | Array<Record<st
 
 export type NormalizedVariant = Record<string, boolean>;
 
-export type configFunction<T> = (params: Omit<T, 'variant'> & { variant?: NormalizedVariant }) => VueClassBinding;
+export type configFunction<T> = (params: Omit<T, 'variant'> & { variant?: NormalizedVariant, slots?: Record<string,VNodeNormalizedChildren> }) => VueClassBinding;
 
 export type ComponentClasses<T> = Record<string, configFunction<T> | string>
 

@@ -376,7 +376,7 @@ Now, every `VirgoButton` component will automatically receive `class="btn"`.
 
 Continuing with our button example, suppose you want to add a `btn--disabled` class to the button when it is disabled.
 
-The `button` key within your classes configuration can be a function. This function receives _all_ of the component instance's props as an object, enabling conditional application of classes based on those props.
+The `button` key within your classes configuration can be a function. This function receives _all_ of the component instance's slots and props as an object, enabling conditional application of classes based on those props.
 
 Below is an illustration of how to apply a dynamic class using the `VirgoButton`'s `disabled` property:
 
@@ -385,12 +385,14 @@ createApp(App)
   .use(virgo, {
 	  classes: {
 		  VirgoButton: {
-			  button: ({ disabled }) => {
+			  button: ({ disabled, slots }) => {
 					return [
 						'simple-button',
 						{
-							'disabled-button': disabled
-						}
+							'disabled-button': disabled,
+						},
+						slots?.['default'] ? 'default-slot-is-used' : 'default-slot-is-not-used',
+						slots?.['icon'] ? 'icon-slot-is-used' : 'icon-slot-is-not-used'
 					];
 				}
 		  }
