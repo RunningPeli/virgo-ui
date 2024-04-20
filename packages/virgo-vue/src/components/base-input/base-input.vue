@@ -48,9 +48,6 @@ defineExpose({
 		:class="[
 			classList.root,
 			classList?.inheritedClass,
-			props.disabled && classList.disabled,
-			(props.disabled || props.readonly) && classList.disabledOrReadonly,
-			!(props.disabled || props.readonly) && classList.interactive,
 		]"
 		:style="inlineStyle"
 		v-bind="attributes"
@@ -61,7 +58,7 @@ defineExpose({
 				v-if="props.label"
 				:for="elementId"
 				v-bind="configurableLabel.attrs"
-				:class="[props.error && classList.labelError, configurableLabel.classes, classList.label]"
+				:class="[classList.label, configurableLabel.classes]"
 			>
 				{{ configurableLabel.content }}
 			</label>
@@ -85,7 +82,7 @@ defineExpose({
 			<div
 				ref="refInputWrapper"
 				v-bind="props.inputWrapperAttrs"
-				:class="[classList.inputWrapper, props.error ? classList.inputWrapperError : classList.inputWrapperValid]"
+				:class="classList.inputWrapper"
 				@click="$emit('click:inputWrapper')"
 			>
 				<!-- Slot: Prepend Inner -->
@@ -102,15 +99,7 @@ defineExpose({
 					:id="elementId"
 					:readonly="props.readonly"
 					:disabled="props.disabled"
-					:class="[
-						classList.inputChild,
-						$slots['prepend-inner'] || props.prependInnerIcon
-							? classList.inputChildWithPrependInner
-							: classList.inputChildWithoutPrependInner,
-						$slots['append-inner'] || props.appendInnerIcon
-							? classList.inputChildWithAppendInner
-							: classList.inputChildWithoutAppendInner,
-					]"
+					:class="classList.inputChild"
 				/>
 
 				<!-- Slot: Append Inner -->
