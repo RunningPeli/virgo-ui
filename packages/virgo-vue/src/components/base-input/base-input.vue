@@ -26,8 +26,6 @@ const attrs = useAttrs()
 
 const configurableLabel = useConfigurable(toRef(props, 'label'))
 
-const iconTransition = 'transition duration-150 ease-in'
-
 const _elementIdToken = attrs.id || props.label
 const elementId = _elementIdToken ? `virgo-input-${_elementIdToken}-${Math.random().toString(36).slice(2, 7)}` : undefined
 
@@ -73,7 +71,7 @@ defineExpose({
 			<slot name="prepend">
 				<i
 					v-if="props.prependIcon"
-					:class="[iconTransition, props.prependIcon]"
+					:class="[classList.icons, props.prependIcon, classList.prependIcon]"
 				/>
 			</slot>
 
@@ -89,7 +87,7 @@ defineExpose({
 				<slot name="prepend-inner">
 					<i
 						v-if="props.prependInnerIcon"
-						:class="[iconTransition, props.prependInnerIcon, classList.prependInnerIcon]"
+						:class="[classList.icons, props.prependInnerIcon, classList.prependInnerIcon]"
 					/>
 				</slot>
 
@@ -107,7 +105,7 @@ defineExpose({
 					<span v-if="props.loading">Loading..</span>
 					<i
 						v-else-if="props.appendInnerIcon"
-						:class="[iconTransition, props.appendInnerIcon, classList.appendInnerIcon]"
+						:class="[classList.icons, props.appendInnerIcon, classList.appendInnerIcon]"
 					/>
 				</slot>
 			</div>
@@ -117,7 +115,7 @@ defineExpose({
 			<slot name="append">
 				<i
 					v-if="props.appendIcon"
-					:class="[iconTransition, props.appendIcon]"
+					:class="[classList.icons, props.appendIcon, classList.appendIcon]"
 				/>
 			</slot>
 		</div>
@@ -132,7 +130,7 @@ defineExpose({
 				>
 					<small
 						class="inline-block"
-						:class="[props.error ? classList.messageError : classList.messageHint]"
+						:class="classList.message"
 					>
 						{{ props.error || props.hint }}</small>
 				</div>

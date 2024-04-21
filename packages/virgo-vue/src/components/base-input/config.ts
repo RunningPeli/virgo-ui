@@ -1,23 +1,6 @@
 import type { ComponentClasses } from '@/plugin'
 import type { baseInputProps } from '@/components/base-input/meta'
 
-/*
-inputWrapper: 'virgo-base-input-input-wrapper transition duration-250 ease-out flex i:w-5 i:h-5 [&_>_.virgo-spinner]-w-5 h-10 rounded-lg cursor-text px-4 spacing:gap-x-2 relative i:focus-within:text-primary items-center border border-solid border-a-border w-full',
-	inputWrapperError: 'border-red-500',
-	inputWrapperValid: 'focus-within:border-primary',
-	prependInnerIcon: 'z-1',
-	appendInnerIcon: 'ms-auto',
-
-
-	inputChild: 'virgo-base-input-child w-full h-full inset-0 rounded-inherit bg-transparent',
-	inputChildWithPrependInner: '',
-	inputChildWithAppendInner: '',
-	inputChildWithoutPrependInner: '',
-	inputChildWithoutAppendInner: '',
-	messageContainer: 'h-8', // hint and errors
-	messageError: 'text-red-500',
-	messageHint: 'text-light-emphasis'
- */
 export const baseInputClasses: ComponentClasses<baseInputProps> = {
 	root: ({ disabled, readonly }) => {
 		return [
@@ -55,7 +38,14 @@ export const baseInputClasses: ComponentClasses<baseInputProps> = {
 				? 'has-append-inner'
 				: 'has-no-append-inner'
 		]
-	}
+	},
+	messageContainer: 'h-8',
+	message: ({ error }) => error ? 'text-red-500' : 'text-light-emphasis',
+	icons: 'transition duration-150 ease-in',
+	prependIcon: '',
+	appendIcon: '',
+	prependInnerIcon: 'z-1',
+	appendInnerIcon: 'ms-auto'
 }
 
 export type baseInputClassesValidKeys = keyof typeof baseInputClasses

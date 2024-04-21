@@ -28,12 +28,14 @@ const isInputTypeFile = attrs.type && attrs.type === 'file'
 function handleInputWrapperClick() {
   input.value?.focus()
 }
+
+console.log({isInputTypeFile, class: classList.value.fileType})
 </script>
 
 <template>
 	<base-input
 		v-bind="{ ..._baseInputProps, ...attributes, class: $attrs.class }"
-		:class="[classList.root, isInputTypeFile && classList.fileType]"
+		:class="[classList.baseInputRoot, isInputTypeFile && classList.fileType]"
 		:style="inlineStyle"
 		@click:inputWrapper="handleInputWrapperClick"
 	>
