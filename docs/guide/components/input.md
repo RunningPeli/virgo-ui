@@ -67,7 +67,6 @@ You can use `readonly` prop to make input read only.
 Use `disabled` prop to make input disabled.
 
 <demo src="../../components/demos/input/demo-input-states.vue"/>
-:::
 
 ## Validation
 

@@ -5,6 +5,7 @@ import type { virgoButtonProps } from '@/components/button'
 import type { tooltipProps } from '@/components/tooltip'
 import type { baseInputProps } from '@/components/base-input'
 import type { virgoInputProps } from '@/components/input'
+import type { floatingProps } from '@/components/floating'
 
 // import type { floatingProps } from '@/components/floating' Not configurable yet
 
@@ -13,8 +14,7 @@ interface ComponentProps {
 	VirgoButton: typeof virgoButtonProps
 	Tooltip: typeof tooltipProps
 	VirgoInput: typeof virgoInputProps
-
-	// Floating: typeof floatingProps Not Confugrable yet
+	Floating: typeof floatingProps
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

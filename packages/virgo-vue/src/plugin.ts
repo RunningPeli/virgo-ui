@@ -22,17 +22,15 @@ export interface ComponentsClasses {
 	BaseInput: Record<ComponentsConfig.baseInputClassesValidKeys, ComponentClass<typeof components.BaseInput>>;
 	Tooltip: Record<ComponentsConfig.tooltipClassesValidKeys, ComponentClass<typeof components.Tooltip>>;
 	VirgoInput: Record<ComponentsConfig.virgoInputClassesValidKeys, ComponentClass<typeof components.VirgoInput>>;
-
-	// Floating: Record<ComponentsConfig.floatingClassesValidKeys, ComponentClass<typeof components.Floating>>; Not configurable yet
+	Floating: Record<ComponentsConfig.floatingClassesValidKeys, ComponentClass<typeof components.Floating>>;
 }
 
 export const defaultClasses = {
 	BaseInput: ComponentsConfig.baseInputClasses,
 	VirgoButton: ComponentsConfig.virgoButtonClasses,
 	Tooltip: ComponentsConfig.tooltipClasses,
-	VirgoInput: ComponentsConfig.virgoInputClasses
-
-	// Floating: ComponentsConfig.floatingConfig, Not configurable yet
+	VirgoInput: ComponentsConfig.virgoInputClasses,
+	Floating: ComponentsConfig.floatingClasses
 }
 
 export type ClassGenerator<T> = (ctx: T) => VueClassBinding;
@@ -49,7 +47,10 @@ export type VueClassBinding = string | Record<string, unknown> | Array<Record<st
 
 export type NormalizedVariant = Record<string, boolean>;
 
-export type configFunction<T> = (params: Omit<T, 'variant'> & { variant?: NormalizedVariant, slots?: Record<string,VNodeNormalizedChildren> }) => VueClassBinding;
+export type configFunction<T> = (params: Omit<T, 'variant'> & {
+	variant?: NormalizedVariant,
+	slots?: Record<string, VNodeNormalizedChildren>
+}) => VueClassBinding;
 
 export type ComponentClasses<T> = Record<string, configFunction<T> | string>
 
@@ -117,7 +118,7 @@ const handleComponentAliases = (app: App, config: PluginOptions) => {
 	}
 }
 
-export const defineVirgoConfig = (options: PartialDeep<PluginOptions>) : PartialDeep<PluginOptions> => {
+export const defineVirgoConfig = (options: PartialDeep<PluginOptions>): PartialDeep<PluginOptions> => {
 	return options
 }
 
