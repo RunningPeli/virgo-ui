@@ -23,13 +23,9 @@ export function useVirgo<Props extends Record<string, unknown>>(definitionProps:
 
 	if (!_componentName) throw new Error('Unable to identify the component name. Please define component name or use the `componentName` parameter while using `useVirgo` composable.')
 
-	// Get defaults
 	const defaultProps = inject(VIRGO_DEFAULT_PROPS, {})
-
-	// New defaults
 	const newDefaultProps = ref({}) as Ref<PluginOptions['defaultProps']>
 
-	// ℹ️ Pass new reactive value to avoid updates in upward tree
 	provide(VIRGO_DEFAULT_PROPS, newDefaultProps)
 
 	// Return Values
@@ -59,13 +55,6 @@ export function useVirgo<Props extends Record<string, unknown>>(definitionProps:
 			else otherProps[key] = value
 		})
 
-		// Provide subProps to the nested component
-		// newDefaults.value = mergeDefaultProps(_defaultProps, otherProps)
-		/**
-		 * ℹ️ This line optimizes object by removing nested component's defaults from the current component tree
-		 * Assume we have { card: { button: { color: 'info' } } } then below line will move 'button' on top and remove it from children of 'card'
-		 * To see the difference log the result of `mergeDefaultProps(...)` of below line and comment line above
-		 */
 		newDefaultProps.value = mergeDefaultProps({ ..._defaultProps, [_componentName]: componentProps }, otherProps)
 
 		const explicitPropsNames = objectKeys(vm?.vnode.props || {}) as unknown as (keyof Props)[]
