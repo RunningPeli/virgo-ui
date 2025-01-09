@@ -37,10 +37,7 @@ export type ClassGenerator<T> = (ctx: T) => VueClassBinding;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ComponentProps<C extends Component> = C extends new (...args: any) => any
-	? Omit<
-		InstanceType<C>['$props'],
-		keyof VNodeProps | keyof AllowedComponentProps
-	>
+	? Omit<InstanceType<C>['$props'],keyof VNodeProps | keyof AllowedComponentProps>
 	: never;
 
 export type VueClassBinding = string | Record<string, unknown> | Array<Record<string, unknown> | string>;
