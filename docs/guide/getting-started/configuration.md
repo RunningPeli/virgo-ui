@@ -309,7 +309,7 @@ createApp(App)
       MyIconButton: VirgoButton,
     },
     defaultProps: {
-      // Set props defaults for IconBtn component
+      // Set props defaults for MyIconButton component
       MyIconButton: {
         iconOnly: true,
       },
@@ -370,11 +370,11 @@ createApp(App)
   })
 ```
 
-Now, every `VirgoButton` component will automatically receive `class="btn"`.
+Now, every `VirgoButton` component will automatically receive `class="simple-button"`.
 
 ### Dynamic Classes
 
-Continuing with our button example, suppose you want to add a `btn--disabled` class to the button when it is disabled.
+Continuing with our button example, suppose you want to add a `disabled-button` class to the button when it is disabled.
 
 The `button` key within your classes configuration can be a function. This function receives _all_ of the component instance's slots and props as an object, enabling conditional application of classes based on those props.
 
@@ -402,7 +402,7 @@ createApp(App)
 The outcomes are as follows:
 
 - `<VirgoButton />` will produce `<button class="simple-button"></button>`.
-- `<VirgoButton disabled />` will yield `<button class="simple-button btn--disabled"></button>`.
+- `<VirgoButton disabled />` will yield `<button class="simple-button disabled-button"></button>`.
 
 ### Using Variants to Define Multiple Styles Globally
 
