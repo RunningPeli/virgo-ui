@@ -1,6 +1,6 @@
 import { objectKeys, objectPick } from '@antfu/utils'
 import { deepmergeCustom } from 'deepmerge-ts'
-import type { Ref, StyleValue } from 'vue'
+import type { Ref, StyleValue, VNodeNormalizedChildren } from 'vue'
 import { normalizeClass, toValue } from 'vue'
 import { VIRGO_CLASSES, VIRGO_DEFAULT_PROPS } from '@/symbols'
 import type { PluginOptionDefaults } from '@/plugin-defaults'
@@ -23,20 +23,16 @@ export function useVirgo<Props extends Record<string, unknown>>(definitionProps:
 
 	if (!_componentName) throw new Error('Unable to identify the component name. Please define component name or use the `componentName` parameter while using `useVirgo` composable.')
 
-	// Get defaults
 	const defaultProps = inject(VIRGO_DEFAULT_PROPS, {})
-
-	// New defaults
 	const newDefaultProps = ref({}) as Ref<PluginOptions['defaultProps']>
 
-	// ℹ️ Pass new reactive value to avoid updates in upward tree
 	provide(VIRGO_DEFAULT_PROPS, newDefaultProps)
 
 	// Return Values
 	const propsRef = ref() as Ref<ReturnType<Props>['props']>
 	const inlineStyle = ref() as ReturnType<Props>['inlineStyle']
 	const attributes = ref() as ReturnType<Props>['attributes']
-
+	const slots = ref<VNodeNormalizedChildren>()
 	const virgoClasses = toValue(inject(VIRGO_CLASSES, {}))
 	const classList = ref({}) as ReturnType<Props>['classList']
 	const unCompiledClassList = ref({}) as ReturnType<Props>['classList']
@@ -59,13 +55,6 @@ export function useVirgo<Props extends Record<string, unknown>>(definitionProps:
 			else otherProps[key] = value
 		})
 
-		// Provide subProps to the nested component
-		// newDefaults.value = mergeDefaultProps(_defaultProps, otherProps)
-		/**
-		 * ℹ️ This line optimizes object by removing nested component's defaults from the current component tree
-		 * Assume we have { card: { button: { color: 'info' } } } then below line will move 'button' on top and remove it from children of 'card'
-		 * To see the difference log the result of `mergeDefaultProps(...)` of below line and comment line above
-		 */
 		newDefaultProps.value = mergeDefaultProps({ ..._defaultProps, [_componentName]: componentProps }, otherProps)
 
 		const explicitPropsNames = objectKeys(vm?.vnode.props || {}) as unknown as (keyof Props)[]
@@ -76,7 +65,7 @@ export function useVirgo<Props extends Record<string, unknown>>(definitionProps:
 
 	const generateClasses = () => {
 		const compiledClasses: Record<string, unknown> = {}
-
+		slots.value = vm?.slots
 		for (const key in unCompiledClassList.value) {
 			const currentConfig = unCompiledClassList.value[key]
 			let compiledClass = undefined
@@ -84,7 +73,8 @@ export function useVirgo<Props extends Record<string, unknown>>(definitionProps:
 			if (currentConfig && !propsRef.value.bare) {
 				if (typeof currentConfig === 'function') {
 					const configClassCtx: ToNormalizedVariant<Props> = Object.assign({}, propsRef.value, {
-						variant: undefined
+						variant: undefined,
+						slots: slots.value
 					})
 
 					if (propsRef.value.variant) {
@@ -111,11 +101,10 @@ export function useVirgo<Props extends Record<string, unknown>>(definitionProps:
 			}
 		}
 		classList.value = {...classList.value, ...compiledClasses }
-		console.log(classList.value)
 	}
 
 
-	watch([() => definitionProps, () => toValue(defaultProps)], () => {
+	watch([() => definitionProps, () => toValue(defaultProps), () => vm?.slots], () => {
 			calculateProps()
 			generateClasses()
 		},

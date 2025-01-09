@@ -7,7 +7,8 @@ export const defaultClasses = {
 	BaseInput: ComponentsConfig.baseInputClasses,
 	VirgoButton: ComponentsConfig.virgoButtonClasses,
 	Tooltip: ComponentsConfig.tooltipClasses,
-	VirgoInput: ComponentsConfig.virgoInputClasses
+	VirgoInput: ComponentsConfig.virgoInputClasses,
+	Floating: ComponentsConfig.floatingClasses
 }
 
 const configDefaults: PartialDeep<PluginOptions> = {

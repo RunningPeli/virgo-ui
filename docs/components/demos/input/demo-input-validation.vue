@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed} from 'vue'
 const username = ref('')
 const hasError = computed(()=> {
 	return username.value.trim() === ''  ? 'This is required' : undefined

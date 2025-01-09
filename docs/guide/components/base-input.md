@@ -23,7 +23,7 @@ Label via prop & slot
     <div>
         <base-input id="form-x">
             <template #label>
-                <label for="a-input-form-x">
+                <label for="virgo-input-form-x">
                     <span>Awesome </span>
                     <span class="text-red">*</span>
                 </label>

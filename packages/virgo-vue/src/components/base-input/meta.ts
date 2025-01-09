@@ -5,6 +5,7 @@ import { allComponentsProps } from '@/all-components-props'
 // Props
 export const baseInputProps = ({
 	...allComponentsProps,
+
 	/**
 	 * Input wrapper attributes
 	 */

@@ -7,8 +7,9 @@ import type { FloatingEvents, floatingSlots } from './meta'
 import { floatingProps } from './meta'
 import { useZIndex } from '@/composables/use-z-index'
 import { useTeleport } from '@/composables/use-teleport'
+import { useVirgo } from '@/composables/use-virgo'
 
-const props = defineProps(floatingProps)
+const _props = defineProps(floatingProps)
 const emit = defineEmits<FloatingEvents>()
 defineSlots<typeof floatingSlots>()
 
@@ -16,6 +17,8 @@ defineOptions({
   name: 'Floating',
   inheritAttrs: false,
 })
+
+const { props, classList } = useVirgo(_props)
 
 const { teleportTarget } = useTeleport()
 const isMounted = useMounted()
@@ -130,9 +133,8 @@ defineExpose({
 				v-show="isFloatingElVisibleDebounced"
 				v-bind="$attrs"
 				ref="refFloating"
-				class="a-floating transform"
 				:style="contentStyle"
-				:class="strategy"
+				:class="[classList.transitionBody,strategy]"
 			>
 				<slot />
 			</div>

@@ -5,7 +5,7 @@
 				type="password"
 				placeholder="Confirm password"
 				append-inner-icon="i-bx-check-double"
-			/>
+			></virgo-input>
 		</div>
 		<div>
 			<virgo-input
