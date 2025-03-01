@@ -23,17 +23,17 @@
 		"build": "unbuild",
 		"stub": "unbuild --stub"
 	},
-	"author": "Virgo Labs <https://github.com/Virgo-Labs>",
+	"author": "Virgo Labs <https://github.com/RunningPeli>",
 	"license": "MIT",
-	"funding": "https://github.com/sponsors/Virgo-Labs",
+	"funding": "https://github.com/sponsors/RunningPeli",
 	"homepage": "https://virgoui.dev",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Virgo-Labs/virgo-ui.git",
+		"url": "git+https://github.com/RunningPeli/virgo-ui.git",
 		"directory": "packages/theme-base"
 	},
 	"bugs": {
-		"url": "https://github.com/Virgo-Labs/virgo-ui/issues"
+		"url": "https://github.com/RunningPeli/virgo-ui/issues"
 	},
 	"keywords": [
 		"component library",

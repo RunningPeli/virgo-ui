@@ -26,7 +26,7 @@ export default defineConfig({
 			copyright: 'Copyright © 2023-present Futó Mirkó & Péli Ferenc'
 		},
 		socialLinks: [
-			{ icon: 'github', link: 'https://github.com/Virgo-Labs/virgo-ui' },
+			{ icon: 'github', link: 'https://github.com/RunningPeli/virgo-ui' },
 			{ icon: 'discord', link: 'https://discord.gg/KagVX4VE' }
 		],
 		nav,
@@ -38,7 +38,7 @@ export default defineConfig({
 					items: [
 						{ text: 'Introduction', link: '/guide/getting-started/' },
 						{ text: 'Installation', link: '/guide/getting-started/installation' },
-						{ text: 'Configuration', link: '/guide/getting-started/configuration' },
+						{ text: 'Configuration', link: '/guide/getting-started/configuration' }
 					]
 				},
 				{
@@ -56,20 +56,20 @@ export default defineConfig({
 						/*{ text: 'Base Input', link: '/guide/components/base-input'},*/
 						{ text: 'Button', link: '/guide/components/button' },
 						{ text: 'Tooltip', link: '/guide/components/tooltip' },
-						{ text: 'Input', link: '/guide/components/input'}
+						{ text: 'Input', link: '/guide/components/input' }
 					]
 				},
 				{
 					text: 'Composables',
 					collapsed: false,
 					items: [
-						{ text: 'useVirgo', link: '/guide/composables/use-virgo' },
+						{ text: 'useVirgo', link: '/guide/composables/use-virgo' }
 						// { text: 'useSearch', link: '/guide/composables/use-search' },
 						// { text: 'useSort', link: '/guide/composables/use-sort' },
 						// { text: 'useSelection', link: '/guide/composables/use-selection' },
 					]
-				},
-			],
+				}
+			]
 		}
 	},
 	markdown: {
@@ -77,7 +77,7 @@ export default defineConfig({
 		lineNumbers: isDev,
 		theme: {
 			light: 'one-dark-pro',
-			dark: 'one-dark-pro',
+			dark: 'one-dark-pro'
 		},
 		config: (md) => {
 			applyPlugins(md)
