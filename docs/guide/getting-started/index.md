@@ -1,7 +1,7 @@
 # Virgo
 
 ::: tip NOTICE
-[Virgo UI](https://github.com/Virgo-Labs/virgo-ui) is currently under development. It's not ready for production yet, but we value your input as we strive to finalize it for general use.
+[Virgo UI](https://github.com/RunningPeli/virgo-ui) is currently under development. It's not ready for production yet, but we value your input as we strive to finalize it for general use.
 
 Virgo is expanding its library of components and we welcome your feedback and suggestions!
 :::
@@ -39,20 +39,20 @@ Supports all modern browsers, including the latest two or three versions.
 
 Stay updated with Virgo's development:
 
-[![Virgo-Labs - virgo-ui](https://img.shields.io/static/v1?label=Virgo-Labs&message=virgo-ui&color=blue&logo=github)](https://github.com/Virgo-Labs/virgo-ui "Visit GitHub repository")
+[![RunningPeli - virgo-ui](https://img.shields.io/static/v1?label=RunningPeli&message=virgo-ui&color=blue&logo=github)](https://github.com/RunningPeli/virgo-ui "Visit GitHub repository")
 
 Engage with the community:
 
-[![stars - virgo-ui](https://img.shields.io/github/stars/Virgo-Labs/virgo-ui?style=social)](https://github.com/Virgo-Labs/virgo-ui)
+[![stars - virgo-ui](https://img.shields.io/github/stars/RunningPeli/virgo-ui?style=social)](https://github.com/RunningPeli/virgo-ui)
 
-[![forks - virgo-ui](https://img.shields.io/github/forks/Virgo-Labs/virgo-ui?style=social)](https://github.com/Virgo-Labs/virgo-ui)
+[![forks - virgo-ui](https://img.shields.io/github/forks/RunningPeli/virgo-ui?style=social)](https://github.com/RunningPeli/virgo-ui)
 
 Keep track of releases:
 
-[![GitHub tag](https://img.shields.io/github/tag/Virgo-Labs/virgo-ui?include_prereleases=&sort=semver&color=blue)](https://github.com/Virgo-Labs/virgo-ui/releases/)
+[![GitHub tag](https://img.shields.io/github/tag/RunningPeli/virgo-ui?include_prereleases=&sort=semver&color=blue)](https://github.com/RunningPeli/virgo-ui/releases/)
 
 License and contributions:
 
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 
-[![issues - virgo-ui](https://img.shields.io/github/issues/Virgo-Labs/virgo-ui)](https://github.com/Virgo-Labs/virgo-ui/issues)
+[![issues - virgo-ui](https://img.shields.io/github/issues/RunningPeli/virgo-ui)](https://github.com/RunningPeli/virgo-ui/issues)

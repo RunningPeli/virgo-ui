@@ -5,7 +5,7 @@ import { useClipboard, useToggle } from '@vueuse/core'
 const props = defineProps({
 	github: {
 		type: String,
-		default: 'https://github.com/Virgo-Labs/virgo-ui',
+		default: 'https://github.com/RunningPeli/virgo-ui',
 	},
 	highlightedCode: {
 		type: String,

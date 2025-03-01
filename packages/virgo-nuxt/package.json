@@ -7,11 +7,11 @@
 	"homepage": "https://virgoui.dev",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Virgo-Labs/virgo-ui.git",
+		"url": "git+https://github.com/RunningPeli/virgo-ui.git",
 		"directory": "packages/virgo-nuxt"
 	},
 	"bugs": {
-		"url": "https://github.com/Virgo-Labs/virgo-ui/issues"
+		"url": "https://github.com/RunningPeli/virgo-ui/issues"
 	},
 	"keywords": [
 		"nuxt 3",

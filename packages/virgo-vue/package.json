@@ -4,16 +4,16 @@
 	"version": "0.1.2",
 	"type": "module",
 	"description": "Vue component collection for Virgo",
-	"author": "Virgo Labs <https://github.com/Virgo-Labs>",
-	"funding": "https://github.com/sponsors/Virgo-Labs",
+	"author": "Virgo Labs <https://github.com/RunningPeli>",
+	"funding": "https://github.com/sponsors/RunningPeli",
 	"homepage": "https://virgoui.dev",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Virgo-Labs/virgo-ui.git",
+		"url": "git+https://github.com/RunningPeli/virgo-ui.git",
 		"directory": "packages/virgo-vue"
 	},
 	"bugs": {
-		"url": "https://github.com/Virgo-Labs/virgo-ui/issues"
+		"url": "https://github.com/RunningPeli/virgo-ui/issues"
 	},
 	"keywords": [
 		"component library",
