@@ -7,6 +7,7 @@ Virgo is expanding its library of components and we welcome your feedback and su
 :::
 
 ## What is Virgo?
+
 Virgo is a comprehensive library for Vue 3, offering ready-to-use components that emphasize great developer experience, accessibility, and complete customization.
 
 It features a global styling configuration, leaving the components unstyled for you to tailor the UI to your liking and design needs.
@@ -14,12 +15,14 @@ It features a global styling configuration, leaving the components unstyled for 
 For a smooth start, we provide a default configuration crafted with UnoCSS, designed to jumpstart your projects.
 
 ## Why choose Virgo?
+
 - **Unstyled**: Fully customizable, Virgo’s components come unstyled, freeing you to apply your unique style. It's designed to be independent of any CSS framework.
 - **Accessible**: Developed with accessibility as a priority, ensuring your applications are accessible to all users.
 - **Global Configuration**: Beyond aesthetics, Virgo enables effortless customization through global settings, giving you control over the entire look and feel.
 - **Tree Shaking**: With tree shaking support, Virgo ensures that your bundle includes only the components you use.
 
 ## Dependencies
+
 Virgo leverages [VueUse](https://vueuse.org/) and [Floating UI](https://floating-ui.com/) as fundamental dependencies, embracing the efficient use of established solutions.
 
 ## Environment
@@ -53,8 +56,3 @@ License and contributions:
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 
 [![issues - virgo-ui](https://img.shields.io/github/issues/Virgo-Labs/virgo-ui)](https://github.com/Virgo-Labs/virgo-ui/issues)
-
-
-
-
-

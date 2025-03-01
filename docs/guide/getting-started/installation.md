@@ -5,15 +5,19 @@
 1. To add Virgo UI to your project, use one of the following commands:
 
    ::: code-group
+
       ```bash [pnpm]
    pnpm add @virgo-ui/vue
       ```
+
       ```bash [yarn]
    yarn add @virgo-ui/vue
       ```
+
       ```bash [npm]
    npm install @virgo-ui/vue
       ```
+
    :::
 
 2. Next, integrate Virgo into your `main.ts` as demonstrated below:
@@ -77,7 +81,6 @@ Opt for an À la carte approach if global registration doesn't suit your project
     </template>
     ```
 
-
 ### Auto Importing Components with Tree Shaking
 
 [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components) facilitates the automatic, on-demand import of components, allowing you to skip explicit import statements while still benefiting from tree shaking.
@@ -96,15 +99,19 @@ Opt for an À la carte approach if global registration doesn't suit your project
 2. Proceed to install `unplugin-vue-components`:
 
    ::: code-group
+
       ```bash [pnpm]
       pnpm add -D unplugin-vue-components
       ```
+
       ```bash [yarn]
          yarn add -D unplugin-vue-components
       ```
+
       ```bash [npm]
        npm install --save-dev unplugin-vue-components
      ```
+
    :::
 
 3. Configure `unplugin-vue-components` in your `vite.config.ts`:
@@ -133,7 +140,7 @@ Opt for an À la carte approach if global registration doesn't suit your project
     <template>
       <virgo-button>
          <tooltip text="Hello!" />
-     	 Hover Over Me
+       Hover Over Me
       </virgo-button>
     </template>
     ```
