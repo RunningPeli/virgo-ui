@@ -5,6 +5,7 @@ import inputApi from '@virgo-ui/vue/component-meta/virgo-input.json';
 # Input
 
 ## Default classes
+
 Base Input (wrapper of Virgo Input)
 
 <<< @/../packages/virgo-vue/src/components/base-input/config.ts
@@ -52,7 +53,6 @@ You can use `hint` prop to add hint to the input.
 You can use various icon location prop to add icon to the input.
 
 <demo src="../../components/demos/input/demo-input-icons.vue"/>
-
 
 ## Types
 
