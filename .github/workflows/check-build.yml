@@ -19,12 +19,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - run: npm install -g corepack@latest
+
+      - run: corepack prepare pnpm@latest --activate
+
+      - run: corepack enable
+
       - uses: actions/setup-node@v3
         with:
           node-version: '22'
           cache: 'pnpm'
-
-      - run: corepack enable
 
       - name: Install dependencies
         run: pnpm install
