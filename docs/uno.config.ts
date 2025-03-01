@@ -22,7 +22,7 @@ export default defineConfig({
 	include: [/.*\/virgo-vue\.js(.*)?$/, './**/*.{vue,md,ts}'],
 	shortcuts: [
 		{
-			'kbd': 'outline-1 outline-solid outline-a-border p-[0.2em_0.45em] rounded-lg min-w-[33px] opacity-60',
+			'kbd': 'outline-1 outline-solid p-[0.2em_0.45em] rounded-lg min-w-[33px] opacity-60',
 			'virgo-demo_wrapper':
 				'p-8 border border-light-700 rounded-lg dark:bg-dark-700 dark:border-#4C4D4F flex',
 			'virgo-demo_actions': 'flex justify-end pt-3 gap-2',
