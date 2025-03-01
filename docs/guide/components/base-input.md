@@ -49,7 +49,6 @@ placeholder
     </div>
 </div>
 
-
 ## Outer Slots
 
 Default slot
@@ -95,7 +94,6 @@ Prepend & Append slot
 <i class="i-bx-info-circle"></i>
 </template>
 </base-input>
-
 
 ## Inner slots
 
@@ -149,7 +147,6 @@ Hint
 </base-input>
 
 Bottom slot
-
 
 <base-input>
 <template #default="props">

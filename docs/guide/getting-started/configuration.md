@@ -11,14 +11,14 @@ import { createApp } from 'vue';
 const app = createApp(App);
 
 app.use(
-	virgo,
-	defineVirgoConfig({
-		classes: {
-			VirgoButton: {
-				// …
-			}
-		}
-	})
+ virgo,
+ defineVirgoConfig({
+  classes: {
+   VirgoButton: {
+    // …
+   }
+  }
+ })
 )
 ```
 
@@ -30,11 +30,11 @@ Define your Virgo configuration within a dedicated file, `virgo.config.ts`, loca
 import { defineVirgoConfig } from '@virgo-ui/vue';
 
 export default defineVirgoConfig({
-	classes: {
-		VirgoButton: {
-			// …
-		},
-	},
+ classes: {
+  VirgoButton: {
+   // …
+  },
+ },
 });
 ```
 
@@ -42,11 +42,11 @@ export default defineVirgoConfig({
 
 ```ts
 interface PluginOptions {
-	registerComponents: boolean
-	classes: PartialDeep<ComponentsClasses>
-	componentAliases: Record<string, any>
-	defaultProps: PartialDeep<PluginOptionDefaults>
-	baseZIndex: number
+ registerComponents: boolean
+ classes: PartialDeep<ComponentsClasses>
+ componentAliases: Record<string, any>
+ defaultProps: PartialDeep<PluginOptionDefaults>
+ baseZIndex: number
 }
 ```
 
@@ -71,6 +71,7 @@ But what about less apparent props, such as `size`? If your design system demand
   <virgo-button size="sm">Download</virgo-button>
 </template>
 ```
+
 This necessitates the repeated use of the `size` prop across your project, which can be quite inconvenient and comes with several drawbacks (though we won't delve into those here).
 
 ### The Solution?
@@ -151,20 +152,20 @@ specifying the `size` prop, thereby maintaining DRY (Don't Repeat Yourself) prin
 
 ```vue
 <template>
-	<card>
-		<p>You're running out of storage!</p>
-		<virgo-button class="ms-auto">Upgrade</virgo-button>
-	</card>
+ <card>
+  <p>You're running out of storage!</p>
+  <virgo-button class="ms-auto">Upgrade</virgo-button>
+ </card>
 
-	<card>
-		<p>Critical error occurred!</p>
-		<virgo-button class="ms-auto">Check</virgo-button>
-	</card>
+ <card>
+  <p>Critical error occurred!</p>
+  <virgo-button class="ms-auto">Check</virgo-button>
+ </card>
 
-	<card>
-		<p>Payment failed!</p>
-		<virgo-button class="ms-auto">Retry</virgo-button>
-	</card>
+ <card>
+  <p>Payment failed!</p>
+  <virgo-button class="ms-auto">Retry</virgo-button>
+ </card>
 </template>
 ```
 
@@ -179,15 +180,15 @@ These defaults can be accessed under the key `inheritedClass` in the `classList`
 ```ts
 createApp(App)
   .use(virgo, {
-	  defaultProps: {
-		  Card: {
-			VirgoButton: {
-			  size: 'sm',
-			  class: 'ms-auto',
-			  // style: {}, /* You can also set default styles */
-			  // attrs: {}, /* Set default attrs, Just in case if needed */
-			},
-		  },
+   defaultProps: {
+    Card: {
+   VirgoButton: {
+     size: 'sm',
+     class: 'ms-auto',
+     // style: {}, /* You can also set default styles */
+     // attrs: {}, /* Set default attrs, Just in case if needed */
+   },
+    },
     },
   })
 ```
@@ -220,18 +221,18 @@ For instance, setting defaults for a custom `AppButton` component might look lik
 
 ```ts
 createApp(App)
-	.use(virgo, {
-		defaultProps: {
-			AppButton: {
-				class: 'uppercase',
-			},
-			AppCard: {
-				AppButton: {
-					propName: false,
-				},
-			}
-		},
-	})
+ .use(virgo, {
+  defaultProps: {
+   AppButton: {
+    class: 'uppercase',
+   },
+   AppCard: {
+    AppButton: {
+     propName: false,
+    },
+   }
+  },
+ })
 ```
 
 Later in your component use `useVirgo` composable:
@@ -271,7 +272,7 @@ When employing the `useVirgo` composable, it's essential to access props using `
 This requirement applies even within your template, necessitating `props.propName` for prop access.
 :::
 
-# Component Aliases
+## Component Aliases
 
 There are scenarios where you might find yourself repeatedly using the same component from a library,
 equipped with an identical set of props or attributes. For instance, you could be utilizing the `virgo-button`
@@ -358,15 +359,14 @@ The documentation for each component, located on the component's page under the 
 
 To apply, simply use the component's name as the key in the `classes` configuration.
 
-
 ```ts
 createApp(App)
   .use(virgo, {
-	  classes: {
-		  VirgoButton: {
-			  button: 'simple-button',
-		  }
-	  }
+   classes: {
+    VirgoButton: {
+     button: 'simple-button',
+    }
+   }
   })
 ```
 
@@ -383,22 +383,23 @@ Below is an illustration of how to apply a dynamic class using the `VirgoButton`
 ```ts
 createApp(App)
   .use(virgo, {
-	  classes: {
-		  VirgoButton: {
-			  button: ({ disabled, slots }) => {
-					return [
-						'simple-button',
-						{
-							'disabled-button': disabled,
-						},
-						slots?.['default'] ? 'default-slot-is-used' : 'default-slot-is-not-used',
-						slots?.['icon'] ? 'icon-slot-is-used' : 'icon-slot-is-not-used'
-					];
-				}
-		  }
-	  }
+   classes: {
+    VirgoButton: {
+     button: ({ disabled, slots }) => {
+     return [
+      'simple-button',
+      {
+       'disabled-button': disabled,
+      },
+      slots?.['default'] ? 'default-slot-is-used' : 'default-slot-is-not-used',
+      slots?.['icon'] ? 'icon-slot-is-used' : 'icon-slot-is-not-used'
+     ];
+    }
+    }
+   }
   })
 ```
+
 The outcomes are as follows:
 
 - `<VirgoButton />` will produce `<button class="simple-button"></button>`.
@@ -416,7 +417,6 @@ featuring distinct _primary_ and _secondary_ designs.
 
 The `variant` prop, available on every Virgo component, is designed specifically for this purpose.
 It allows for conditional class application within the configuration, akin to how Vue handles class bindings:
-
 
 ```vue
 <!-- No variant -->
@@ -436,22 +436,22 @@ The `variant` becomes accessible **as a normalized object** within the configura
 
 ```ts
 createApp(App)
-	.use(virgo, {
-		classes: {
-			VirgoButton: {
-				button: ({ disabled, variant }) => {
-					return [
-						'simple-button',
-						{
-							'disabled-button': disabled,
-							'large-button': variant?.large,
-							'primary-button': variant?.primary
-						}
-					];
-				}
-			}
-		}
-	})
+ .use(virgo, {
+  classes: {
+   VirgoButton: {
+    button: ({ disabled, variant }) => {
+     return [
+      'simple-button',
+      {
+       'disabled-button': disabled,
+       'large-button': variant?.large,
+       'primary-button': variant?.primary
+      }
+     ];
+    }
+   }
+  }
+ })
 ```
 
 ::: warning
@@ -459,6 +459,7 @@ For ease of conditionally applying classes in the configuration, the `variant` p
 
 Should a `variant` not be specified, its value remains `undefined` and does not undergo transformation into an object.
 :::
+
 ### Overriding Config
 
 Should you require more granular control, **overriding the global classes** is possible by using the `bare` prop:
@@ -472,4 +473,3 @@ This results in the component rendering with only the locally defined classes:
 ```vue
 <button class="free-from-global-config-button">Label</button>
 ```
-
