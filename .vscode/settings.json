@@ -45,4 +45,5 @@
   // Extension: Volar
   "vue.server.vitePress.supportMdFile": true,
   "references.preferredLocation": "peek",
+  "github.copilot.nextEditSuggestions.enabled": true,
 }
