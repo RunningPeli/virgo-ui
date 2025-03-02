@@ -1,6 +1,5 @@
 # Installation
 
-## Installing Packages
 
 1. To add Virgo UI to your project, use one of the following commands:
 
