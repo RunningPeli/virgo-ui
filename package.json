@@ -61,5 +61,5 @@
 		"unbuild": "1.2.1",
 		"vue-component-meta": "1.6.5"
 	},
-	"packageManager": "pnpm@10.5.2"
+	"packageManager": "pnpm@10.6.0"
 }

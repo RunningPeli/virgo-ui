@@ -1,6 +1,5 @@
 {
   "extends": [
-    "./playground/.nuxt/tsconfig.json",
     "../../tsconfig.json"
   ],
   "compilerOptions": {
